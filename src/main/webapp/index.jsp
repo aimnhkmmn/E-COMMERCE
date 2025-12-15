@@ -1,5 +1,7 @@
-<html>
-<body>
-<h2>Hello World!</h2>
-</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<jsp:include page="header.jsp" />
+
+<h1>JOKI Fast By MIU</h1>
+
+<jsp:include page="footer.jsp" />
