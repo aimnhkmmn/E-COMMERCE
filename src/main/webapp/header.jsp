@@ -11,8 +11,14 @@
 <nav class="navbar">
     <a href="index.jsp" class="logo">MIUU JOKI</a>
 
-    <ul class="nav-links">
-        <li><a href="index.jsp">Home</a></li>
+    <ul class="nav-center">
+        <li><a href="products.jsp">New & Featured</a></li>
+        <li><a href="products.jsp">Men</a></li>
+        <li><a href="products.jsp">Women</a></li>
+        <li><a href="products.jsp">Kids</a></li>
+    </ul>
+
+    <ul class="nav-right">
         <li><a href="products.jsp">Products</a></li>
         <li><a href="cart.jsp">My Cart</a></li>
 
@@ -26,5 +32,3 @@
         <% } %>
     </ul>
 </nav>
-
-<div style="padding: 20px;">

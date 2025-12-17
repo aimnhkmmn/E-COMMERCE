@@ -2,6 +2,11 @@
 
 <jsp:include page="header.jsp" />
 
-<h1>JOKI Fast By MIU</h1>
+<section class="homepage-first-pic">
+    <div class="motto">
+        <h1>HARITH<br>LOVE HUZZ</h1>
+        <p>YOUR KING MAGNETIC<br>HUZZ HUNTER.</p>
+    </div>
+</section>
 
 <jsp:include page="footer.jsp" />
