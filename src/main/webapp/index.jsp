@@ -10,3 +10,8 @@
 </section>
 
 <jsp:include page="footer.jsp" />
+<html>
+<body>
+<h2>Held!</h2>
+</body>
+</html>
