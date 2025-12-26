@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+
+body,html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: white;
+}
+
+.navbar {
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    padding: 30px 20px;
+    align-items: center;
+}
+
+.navbar .logo {
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 150px
+}
+
+.nav-center {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-left: 60px;
+}
+
+.nav-right {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-left: auto;
+}
+
+.nav-center a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-right a {
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.nav-center a:hover {
+    color: #00D2E0;
+    text-decoration: underline;
+}
+
+.btn-nav {
+    background-color: #00D2E0;
+    padding: 8px 15px;
+    border-radius: 4px;
+    color: black;
+}
+
+.homepage-first-pic {
+    width: 100vw;
+    height: 85vh;
+
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 0;
+
+    background-image: url('../images/ShoesBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+.motto h1 {
+    font-size: 70px;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.motto p {
+    font-size: 20px;
+    font-weight: 200;
+    opacity: 0.9;
+}
