@@ -1,0 +1,149 @@
+/* --- SHOP PAGE LAYOUT --- */
+.shop-container {
+    display: flex;
+    max-width: 1400px; /* Wide layout like the reference */
+    margin: 40px auto;
+    padding: 0 40px;
+    gap: 40px;
+}
+
+/* 1. Sidebar Styles */
+.shop-sidebar {
+    width: 250px; /* Fixed width sidebar */
+    flex-shrink: 0;
+}
+
+.filter-group {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.filter-group h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+    cursor: pointer;
+}
+
+/* Size Buttons Grid */
+.size-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.size-grid button {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.size-grid button:hover {
+    border-color: black;
+}
+
+/* 2. Main Grid Styles */
+.shop-content {
+    flex-grow: 1;
+}
+
+.shop-header {
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: grid;
+    /* Responsive columns: fits as many as possible */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* 3. Product Card Styles (Reference Match) */
+.product-card {
+    position: relative;
+    border: 1px solid #f0f0f0; /* Very subtle border */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.badge-new, .badge-sale {
+    position: absolute;
+    top: 15px; left: 15px;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    z-index: 10;
+}
+.badge-new { background-color: black; color: white; }
+.badge-sale { background-color: #ff4d4d; color: white; }
+
+.card-image-box {
+    height: 250px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-image-box img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.card-details {
+    padding: 20px;
+}
+
+.brand {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.product-card h4 {
+    margin: 5px 0 10px 0;
+    font-size: 1.1rem;
+}
+
+.price-row {
+    margin-bottom: 15px;
+}
+
+.current-price {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+/* The Black "Add to Cart" Button */
+.btn-add-cart {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.btn-add-cart:hover {
+    background-color: #333;
+}
