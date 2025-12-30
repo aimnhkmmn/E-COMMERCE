@@ -10,96 +10,303 @@ body,html {
     background-color: white;
 }
 
+/* --- UPDATED NAVBAR --- */
 .navbar {
     background-color: white;
-    overflow: hidden;
+    width: 100%;
+    height: 80px;
     display: flex;
-    padding: 30px 20px;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-container {
+    width: 100%;       /* Takes up full screen width */
+    max-width: 100%;   /* REMOVED the 1200px limit */
+
+    /* This padding controls how close items get to the edge of the screen.
+       20px top/bottom, 50px left/right feels premium. */
+    padding: 0 50px;
+
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Logo Styling */
 .navbar .logo {
-    color: black;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    margin-left: 150px
-}
-
-.nav-center {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    margin-left: 60px;
-}
-
-.nav-right {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    margin-left: auto;
-}
-
-.nav-center a {
+    font-size: 1.5rem;
+    font-weight: 900;
     color: black;
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-right a {
-    color: black;
-    text-decoration: none;
-    font-size: 15px;
-}
-
-.nav-center a:hover {
-    color: #00D2E0;
-    text-decoration: underline;
-}
-
-.btn-nav {
-    background-color: #00D2E0;
-    padding: 8px 15px;
-    border-radius: 4px;
-    color: black;
-}
-
-.homepage-first-pic {
-    width: 100vw;
-    height: 85vh;
-
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    margin-top: 0;
-
-    background-image: url('../images/ShoesBackground.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    padding-left: 20px;
-    align-items: center;
-    color: white;
-    overflow: hidden;
-}
-
-.motto h1 {
-    font-size: 70px;
-    font-weight: 800;
-    line-height: 1;
-    margin: 0;
+    letter-spacing: -1px;
     text-transform: uppercase;
 }
 
-.motto p {
-    font-size: 20px;
-    font-weight: 200;
-    opacity: 0.9;
+/* Links Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px; /* Space between individual links */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    font-size: 0.95rem; /* Slightly smaller for cleaner look */
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00D2E0;
+}
+
+/* Right Actions Styling */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* (Keep your existing .nav-item and .btn-login styles same as before) */
+.nav-item {
+    color: black;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.btn-login {
+    background-color: black;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #333;
+}
+
+/* --- HERO CAROUSEL --- */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 85vh; /* Takes up most of the screen */
+    overflow: hidden;
+    background-color: #000; /* Fallback color */
+    margin-top: 0;
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll; /* Allows horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Forces the snap effect */
+    scroll-behavior: smooth; /* Smooth sliding */
+
+    /* Hide scrollbar for Chrome/Safari */
+    scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* INDIVIDUAL SLIDES */
+.carousel-slide {
+    min-width: 100%; /* Each slide is full screen width */
+    height: 100%;
+    position: relative;
+    scroll-snap-align: start; /* The snap point */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligns text to left */
+    padding-left: 8%; /* Space from left edge */
+}
+
+/* Background Images */
+.slide-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; /* Ensures image covers area */
+    opacity: 0.6; /* Darkens image so text is readable */
+    z-index: 0;
+}
+
+/* Text Content on top of Slide */
+.slide-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 600px;
+}
+
+.slide-content span {
+    color: #00D2E0; /* Your brand blue */
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.slide-content h1 {
+    font-size: 5rem;
+    line-height: 1;
+    margin: 10px 0 20px 0;
+    text-transform: uppercase;
+    font-style: italic; /* Makes it look fast */
+}
+
+.slide-content button {
+    padding: 15px 40px;
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 30px;
+    transition: transform 0.2s;
+}
+
+.slide-content button:hover {
+    transform: scale(1.05);
+}
+
+/* NAV BUTTONS (Left/Right Arrows) */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 20px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+.carousel-btn:hover { background: rgba(255, 255, 255, 0.5); }
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+/* --- CATEGORY SPLIT (Men/Women/Kids) --- */
+.category-split {
+    display: flex;
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+}
+
+.cat-box {
+    flex: 1; /* Equal width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4; /* Placeholder Grey */
+    border-right: 2px solid white;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    /* If you have images, add them here via style attribute or separate classes */
+    /* background-image: url('men.jpg'); background-size: cover; */
+}
+
+.cat-box:hover {
+    background-color: #e0e0e0; /* Darker on hover */
+}
+
+.cat-box h3 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: black;
+    text-transform: uppercase;
+}
+
+/* --- FOOTER SKELETON --- */
+.site-footer {
+    background-color: #111; /* Almost black */
+    color: white;
+    padding-top: 50px;
+    margin-top: 50px; /* Separates footer from the product list */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+    flex-wrap: wrap; /* Allows columns to wrap on small screens */
+}
+
+.footer-col {
+    flex: 1;             /* Each column takes equal width */
+    min-width: 200px;    /* Prevents them from getting too squished */
+    margin-bottom: 20px;
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Footer Links */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #bbb; /* Light grey text */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: white; /* White on hover */
+}
+
+/* Social Placeholder */
+.social-placeholder span {
+    display: inline-block;
+    background-color: #333;
+    padding: 8px 12px;
+    margin-right: 5px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Bottom Copyright Bar */
+.footer-bottom {
+    border-top: 1px solid #333; /* Thin line separator */
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 0.9rem;
 }
