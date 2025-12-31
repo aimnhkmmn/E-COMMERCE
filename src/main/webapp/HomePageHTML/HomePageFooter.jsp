@@ -9,10 +9,10 @@
         <div class="footer-col">
             <h4>Shop</h4>
             <ul>
-                <li><a href="#">New Arrivals</a></li>
-                <li><a href="#">Men</a></li>
-                <li><a href="#">Women</a></li>
-                <li><a href="#">Sale</a></li>
+                <li><a href="new-featured.jsp">New Arrivals</a></li>
+                <li><a href="men.jsp">Men</a></li>
+                <li><a href="women.jsp">Women</a></li>
+                <li><a href="kids.jsp">Kids</a></li>
             </ul>
         </div>
 
@@ -35,7 +35,7 @@
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2023 MIUU JOKI. All rights reserved.</p>
+        <p>&copy; 2025 GANU RANGERS. All rights reserved.</p>
     </div>
 </footer>
 <script src="js/script.js" defer></script>
