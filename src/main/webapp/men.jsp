@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <jsp:include page="HomePageHTML/HomePageHeader.jsp" />
+<%@ page import="com.ecommerce.Product" %>
+<%@ page import="com.ecommerce.ProductLoader" %>
+<%@ page import="java.util.List" %>
 
 <link rel="stylesheet" href="css/shop-style.css">
 
@@ -39,70 +42,62 @@
             <p>Showing 4 products</p>
         </div>
 
-        <div class="product-grid">
+        <%
+            // 1. Find the REAL path to the JSON file on your server
+            String jsonPath = application.getRealPath("/data/products.json");
 
-            <div class="product-card">
-                <div class="badge-new">New</div>
-                <div class="card-image-box">
-                    <img src="${pageContext.request.contextPath}/images/shoe1.jpg" alt="Shoe">
-                </div>
-                <div class="card-details">
-                    <span class="brand">Nike</span>
-                    <h4>Air Max Pro Runner</h4>
-                    <div class="price-row">
-                        <span class="current-price">$129.99</span>
-                        <span class="old-price">$159.99</span>
+            // 2. Use our helper class to load the list
+            List<Product> allProducts = ProductLoader.loadProducts(jsonPath);
+        %>
+            <div class="product-grid">
+
+                <%
+                    // LOOP: Go through every product in our list
+                    if (allProducts != null) {
+                        for (Product p : allProducts) {
+
+                            // FILTER: Only show "Men" shoes on this page
+                            if ("Men".equalsIgnoreCase(p.getCategory())) {
+                %>
+
+                <div class="product-card">
+
+                    <% if (p.isNew()) { %>
+                    <div class="badge-new">New</div>
+                    <% } else if (p.isSale()) { %>
+                    <div class="badge-sale">Sale</div>
+                    <% } %>
+
+                    <div class="card-image-box">
+                        <a href="product-details.jsp?id=<%= p.getId() %>">
+                            <img src="${pageContext.request.contextPath}/<%= p.getImage() %>" alt="<%= p.getName() %>">
+                        </a>
                     </div>
-                    <button class="btn-add-cart">Add to Cart</button>
+
+                    <div class="card-details">
+                        <span class="brand">Nike</span>
+
+                        <h4>
+                            <a href="product-details.jsp?id=<%= p.getId() %>" style="text-decoration: none; color: inherit;">
+                                <%= p.getName() %>
+                            </a>
+                        </h4>
+
+                        <div class="price-row">
+                            <span class="current-price">$<%= p.getPrice() %></span>
+                        </div>
+
+                        <button class="btn-add-cart">Add to Cart</button>
+                    </div>
                 </div>
+
+                <%
+                            } // End of Filter If
+                        } // End of For Loop
+                    } // End of Null Check
+                %>
             </div>
 
-            <div class="product-card">
-                <div class="badge-sale">20% OFF</div>
-                <div class="card-image-box">
-                    <img src="${pageContext.request.contextPath}/images/shoe2.jpg" alt="Shoe">
-                </div>
-                <div class="card-details">
-                    <span class="brand">Adidas</span>
-                    <h4>Ultraboost Light</h4>
-                    <div class="price-row">
-                        <span class="current-price">$140.00</span>
-                        <span class="old-price">$180.00</span>
-                    </div>
-                    <button class="btn-add-cart">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="card-image-box">
-                    <img src="${pageContext.request.contextPath}/images/shoe3.jpg" alt="Shoe">
-                </div>
-                <div class="card-details">
-                    <span class="brand">Puma</span>
-                    <h4>RS-X Efekt</h4>
-                    <div class="price-row">
-                        <span class="current-price">$110.00</span>
-                    </div>
-                    <button class="btn-add-cart">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="badge-new">New</div>
-                <div class="card-image-box">
-                    <img src="${pageContext.request.contextPath}/images/shoe1.jpg" alt="Shoe">
-                </div>
-                <div class="card-details">
-                    <span class="brand">New Balance</span>
-                    <h4>NB 9060</h4>
-                    <div class="price-row">
-                        <span class="current-price">$150.00</span>
-                    </div>
-                    <button class="btn-add-cart">Add to Cart</button>
-                </div>
-            </div>
-
-        </div>
     </main>
 </div>
 

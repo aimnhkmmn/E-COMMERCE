@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Nike Air Max Pulse",
+    "price": 120.00,
+    "category": "Men",
+    "image": "images/shoe1.jpg",
+    "isNew": true,
+    "isSale": false
+  },
+  {
+    "id": 2,
+    "name": "Adidas Speed Demon",
+    "price": 140.00,
+    "category": "Men",
+    "image": "images/shoe2.jpg",
+    "isNew": false,
+    "isSale": true
+  },
+  {
+    "id": 3,
+    "name": "Jordan Retro High",
+    "price": 180.00,
+    "category": "Men",
+    "image": "images/shoe3.jpg",
+    "isNew": true,
+    "isSale": false
+  },
+  {
+    "id": 4,
+    "name": "Nike Air Zoom",
+    "price": 110.00,
+    "category": "Women",
+    "image": "images/shoe1.jpg",
+    "isNew": false,
+    "isSale": false
+  },
+  {
+    "id": 5,
+    "name": "Adidas Ultraboost Light",
+    "price": 160.00,
+    "category": "Women",
+    "image": "images/shoe2.jpg",
+    "isNew": true,
+    "isSale": false
+  },
+  {
+    "id": 6,
+    "name": "Puma RS-X Kids",
+    "price": 85.00,
+    "category": "Kids",
+    "image": "images/shoe3.jpg",
+    "isNew": false,
+    "isSale": true
+  }
+]
