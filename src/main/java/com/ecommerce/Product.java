@@ -6,6 +6,7 @@ public class Product {
     private String name;
     private double price;
     private String category;
+    private String type;
     private String image;
     private boolean isNew;
     private boolean isSale;
@@ -15,6 +16,7 @@ public class Product {
     public String getName() { return name; }
     public double getPrice() { return price; }
     public String getCategory() { return category; }
+    public String getType() { return type; }
     public String getImage() { return image; }
     public boolean isNew() { return isNew; }
     public boolean isSale() { return isSale; }

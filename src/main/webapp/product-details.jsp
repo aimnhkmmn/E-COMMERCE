@@ -4,7 +4,7 @@
 <%@ page import="java.util.List" %>
 
 <jsp:include page="HomePageHTML/HomePageHeader.jsp" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/men-style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/shop-style.css">
 <%
     // 1. Get the ID from the URL (e.g., ?id=2)
     String idParam = request.getParameter("id");
