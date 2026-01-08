@@ -13,16 +13,18 @@
     ArrayList<Map<String, String>> cart = (ArrayList<Map<String, String>>) session.getAttribute("cart");
     if (cart == null) { cart = new ArrayList<>(); }
 
+    // Logic to Add Item
     if (productId != null && productName != null) {
         Map<String, String> product = new HashMap<>();
         product.put("id", productId);
         product.put("name", productName);
-        product.put("image", (productImage != null) ? productImage : "images/shoe1.jpg");
+        product.put("image", (productImage != null && !productImage.isEmpty()) ? productImage : "images/shoe1.jpg");
         product.put("price", "299.00");
         cart.add(product);
         session.setAttribute("cart", cart);
     }
 
+    // Logic to Remove Item
     if (removeIndex != null) {
         try {
             int index = Integer.parseInt(removeIndex);
@@ -32,22 +34,29 @@
             }
         } catch (Exception e) {}
     }
+
+    // Calculate Grand Total
+    double total = 0;
+    for(Map<String, String> item : cart) {
+        total += Double.parseDouble(item.get("price"));
+    }
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FootWearHub - Cart</title>
+    <meta charset="UTF-8">
+    <title>FootWearHub - Your Bag</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: #000; /* Matches the hero background */
+            background-color: #000;
             color: #fff;
             margin: 0;
             padding: 0;
         }
         .cart-wrapper {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 50px auto;
             padding: 20px;
         }
@@ -64,7 +73,7 @@
         .cart-item {
             display: flex;
             align-items: center;
-            background: #111; /* Slightly lighter black for items */
+            background: #111;
             margin-bottom: 15px;
             padding: 20px;
             border-radius: 10px;
@@ -87,14 +96,14 @@
             text-transform: uppercase;
         }
         .item-id { color: #888; font-size: 0.9em; margin: 5px 0; }
-        .item-price { font-size: 1.2em; font-weight: bold; margin-top: 10px; }
+        .item-price { font-size: 1.2em; font-weight: bold; margin-top: 10px; color: #fff; }
 
-        /* MATCHING BUTTONS */
+        /* BUTTONS */
         .btn-white {
             background-color: #fff;
             color: #000;
             padding: 12px 25px;
-            border-radius: 30px; /* Rounded like your index buttons */
+            border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
@@ -119,14 +128,57 @@
             display: inline-block;
         }
 
+        /* CHECKOUT BAR STYLING (MATCHING YOUR PHOTO) */
         .cart-footer {
             margin-top: 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            border-top: 1px solid #333;
+            padding: 0;
         }
+
+        .checkout-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff; /* White background as per image */
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .total-container {
+            padding: 0 25px;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .total-label {
+            color: #000;
+        }
+
+        .total-value {
+            color: #ee4d2d; /* Orange/Red price color */
+            font-size: 1.5em;
+            font-weight: 500;
+            margin-left: 5px;
+        }
+
+        .btn-checkout-orange {
+            background-color: #ee4d2d; /* Orange background */
+            color: #fff;
+            padding: 20px 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-checkout-orange:hover {
+            background-color: #ff5722;
+        }
+
         .empty-msg { text-align: center; padding: 100px 0; }
     </style>
 </head>
@@ -163,9 +215,13 @@
 
     <div class="cart-footer">
         <a href="index.jsp" class="btn-outline">← Back to Shop</a>
-        <div>
-            <span style="font-size: 1.3em; margin-right: 20px;">Total: <strong>RM <%= cart.size() * 299 %>.00</strong></span>
-            <a href="checkout.jsp" class="btn-white">Check Out</a>
+
+        <div class="checkout-bar">
+            <div class="total-container">
+                <span class="total-label">Total (<%= cart.size() %> item<%= cart.size() > 1 ? "s" : "" %>):</span>
+                <span class="total-value">RM<%= String.format("%.2f", total) %></span>
+            </div>
+            <a href="checkout.jsp" class="btn-checkout-orange">Check Out</a>
         </div>
     </div>
     <% } %>
