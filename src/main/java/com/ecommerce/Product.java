@@ -2,16 +2,16 @@ package com.ecommerce; // Make sure this matches your actual package name
 
 public class Product {
     // These names MUST match the "keys" in your products.json file exactly
-    private int id;
-    private String name;
-    private double price;
-    private String category;
-    private String type;
-    private String image;
-    private boolean isNew;
-    private boolean isSale;
-    private String brand;
-    private String description;
+    private final int id;
+    private final String name;
+    private final double price;
+    private final String category;
+    private final String type;
+    private final String image;
+    private final boolean isNew;
+    private final boolean isSale;
+    private final String brand;
+    private final String description;
 
     // Constructor
     public Product(int id, String name, double price, String category, String type, String image, boolean isNew, boolean isSale, String brand, String description) {

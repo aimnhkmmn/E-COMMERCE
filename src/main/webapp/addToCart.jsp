@@ -3,51 +3,62 @@
     Logic: Handles session-based cart, addition/removal, and total calculation.
     Style: Monochrome, professional, compact floating checkout bar.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Map" %>
 
 <%
-    // --- LOGIC: ADD/REMOVE ITEMS ---
-    ArrayList<Map<String, String>> cart = (ArrayList<Map<String, String>>) session.getAttribute("cart");
-    if (cart == null) { cart = new ArrayList<>(); }
+    // --- SAFE CART INITIALIZATION ---
+    Object cartObj = session.getAttribute("cart");
+    ArrayList<Map<String, String>> cart;
+    if (cartObj instanceof ArrayList) {
+        cart = (ArrayList<Map<String, String>>) cartObj;
+    } else {
+        cart = new ArrayList<>();
+    }
 
+    // --- LOGIC: ADD/REMOVE ITEMS ---
     String productId = request.getParameter("productId");
     String productName = request.getParameter("productName");
     String productImage = request.getParameter("productImage");
-    String removeIndex = request.getParameter("removeIndex");
+    String productPrice = request.getParameter("productPrice");
+    String removeIndexStr = request.getParameter("removeIndex");
 
     // Add Item Logic
-    if (productId != null && productName != null) {
+    if (productId != null && !productId.isEmpty() && productName != null && !productName.isEmpty()) {
         Map<String, String> product = new HashMap<>();
         product.put("id", productId);
         product.put("name", productName);
         product.put("image", (productImage != null && !productImage.isEmpty()) ? productImage : "images/shoe1.jpg");
-        product.put("price", "299.00");
+        product.put("price", (productPrice != null && !productPrice.isEmpty()) ? productPrice : "0.00");
         cart.add(product);
-        session.setAttribute("cart", cart);
     }
 
     // Remove Item Logic
-    if (removeIndex != null) {
+    if (removeIndexStr != null) {
         try {
-            int index = Integer.parseInt(removeIndex);
+            int index = Integer.parseInt(removeIndexStr);
             if (index >= 0 && index < cart.size()) {
                 cart.remove(index);
-                session.setAttribute("cart", cart);
             }
-        } catch (Exception e) {}
+        } catch (NumberFormatException e) {
+            // Log the error or show a message if needed
+            System.err.println("Invalid remove index: " + removeIndexStr);
+        }
     }
+    session.setAttribute("cart", cart);
 
     // --- CALCULATE TOTALS ---
     double totalPrice = 0;
-    int totalItems = cart.size();
     for(Map<String, String> item : cart) {
         try {
             totalPrice += Double.parseDouble(item.get("price"));
-        } catch (Exception e) {}
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid price for item: " + item.get("name"));
+        }
     }
+    int totalItems = cart.size();
 %>
 
 <!DOCTYPE html>
@@ -263,7 +274,7 @@
         <div class="item-details">
             <div class="item-name"><%= item.get("name") %></div>
             <div class="item-id">ID: <%= item.get("id") %></div>
-            <div class="item-price">RM <%= item.get("price") %></div>
+            <div class="item-price">RM <%= String.format("%.2f", Double.parseDouble(item.get("price"))) %></div>
             <a href="addToCart.jsp?removeIndex=<%= i %>" class="btn-remove">Remove</a>
         </div>
     </div>
