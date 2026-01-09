@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <jsp:include page="HomePageHTML/HomePageHeader.jsp" />
 
@@ -39,8 +39,10 @@
                 <div class="button-group">
                     <button>Shop Now</button>
                     <form action="addToCart.jsp" method="POST" style="margin:0;">
-                        <input type="hidden" name="productId" value="P001">
-                        <input type="hidden" name="productName" value="AIR MAX PULSE">
+                        <input type="hidden" name="productId" value="1">
+                        <input type="hidden" name="productName" value="Nike Air Max Pulse">
+                        <input type="hidden" name="productPrice" value="120.00">
+                        <input type="hidden" name="productImage" value="images/shoe1.jpg">
                         <button type="submit" class="add-to-cart-btn">Add to Cart</button>
                     </form>
                 </div>
@@ -56,8 +58,10 @@
                 <div class="button-group">
                     <button>See Details</button>
                     <form action="addToCart.jsp" method="POST" style="margin:0;">
-                        <input type="hidden" name="productId" value="P002">
-                        <input type="hidden" name="productName" value="SPEED DEMON">
+                        <input type="hidden" name="productId" value="2">
+                        <input type="hidden" name="productName" value="Adidas Speed Demon">
+                        <input type="hidden" name="productPrice" value="140.00">
+                        <input type="hidden" name="productImage" value="images/shoe2.jpg">
                         <button type="submit" class="add-to-cart-btn">Add to Cart</button>
                     </form>
                 </div>
@@ -73,8 +77,10 @@
                 <div class="button-group">
                     <button>Buy Now</button>
                     <form action="addToCart.jsp" method="POST" style="margin:0;">
-                        <input type="hidden" name="productId" value="P003">
-                        <input type="hidden" name="productName" value="JORDAN RETRO">
+                        <input type="hidden" name="productId" value="3">
+                        <input type="hidden" name="productName" value="Jordan Retro High">
+                        <input type="hidden" name="productPrice" value="180.00">
+                        <input type="hidden" name="productImage" value="images/shoe3.jpg">
                         <button type="submit" class="add-to-cart-btn">Add to Cart</button>
                     </form>
                 </div>

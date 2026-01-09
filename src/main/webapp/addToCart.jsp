@@ -1,64 +1,54 @@
-<%--
-    FootWearHub - Cart Page
-    Logic: Handles session-based cart, addition/removal, and total calculation.
-    Style: Monochrome, professional, compact floating checkout bar.
---%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.util.Map" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="com.ecommerce.Product" %>
+<%@ page import="com.ecommerce.Cart" %>
+<%@ page import="com.ecommerce.ProductLoader" %>
+<%@ page import="java.util.List" %>
 
 <%
     // --- SAFE CART INITIALIZATION ---
     Object cartObj = session.getAttribute("cart");
-    ArrayList<Map<String, String>> cart;
-    if (cartObj instanceof ArrayList) {
-        cart = (ArrayList<Map<String, String>>) cartObj;
+    Cart cart;
+    if (cartObj instanceof Cart) {
+        cart = (Cart) cartObj;
     } else {
-        cart = new ArrayList<>();
+        cart = new Cart();
     }
 
     // --- LOGIC: ADD/REMOVE ITEMS ---
-    String productId = request.getParameter("productId");
-    String productName = request.getParameter("productName");
-    String productImage = request.getParameter("productImage");
-    String productPrice = request.getParameter("productPrice");
+    String productIdStr = request.getParameter("productId");
     String removeIndexStr = request.getParameter("removeIndex");
 
     // Add Item Logic
-    if (productId != null && !productId.isEmpty() && productName != null && !productName.isEmpty()) {
-        Map<String, String> product = new HashMap<>();
-        product.put("id", productId);
-        product.put("name", productName);
-        product.put("image", (productImage != null && !productImage.isEmpty()) ? productImage : "images/shoe1.jpg");
-        product.put("price", (productPrice != null && !productPrice.isEmpty()) ? productPrice : "0.00");
-        cart.add(product);
+    if (productIdStr != null && !productIdStr.isEmpty()) {
+        try {
+            int productId = Integer.parseInt(productIdStr);
+            String jsonPath = application.getRealPath("/data/products.json");
+            List<Product> allProducts = ProductLoader.loadProducts(jsonPath);
+            for (Product p : allProducts) {
+                if (p.getId() == productId) {
+                    cart.addProduct(p);
+                    break;
+                }
+            }
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid product ID format: " + productIdStr);
+        }
     }
 
     // Remove Item Logic
     if (removeIndexStr != null) {
         try {
             int index = Integer.parseInt(removeIndexStr);
-            if (index >= 0 && index < cart.size()) {
-                cart.remove(index);
-            }
+            cart.removeProduct(index);
         } catch (NumberFormatException e) {
-            // Log the error or show a message if needed
             System.err.println("Invalid remove index: " + removeIndexStr);
         }
     }
     session.setAttribute("cart", cart);
 
-    // --- CALCULATE TOTALS ---
-    double totalPrice = 0;
-    for(Map<String, String> item : cart) {
-        try {
-            totalPrice += Double.parseDouble(item.get("price"));
-        } catch (NumberFormatException e) {
-            System.err.println("Invalid price for item: " + item.get("name"));
-        }
-    }
-    int totalItems = cart.size();
+    // --- GET TOTALS FROM CART OBJECT ---
+    double totalPrice = cart.getTotal();
+    int totalItems = cart.getItemCount();
 %>
 
 <!DOCTYPE html>
@@ -180,15 +170,14 @@
             background: rgba(255,255,255,0.05);
         }
 
-        /* MONOCHROME FLOATING BAR (Matches image_770a8a.png) */
+        /* MONOCHROME FLOATING BAR */
         .checkout-floating-bar {
             display: flex;
             align-items: center;
-            background-color: #fff; /* High contrast */
+            background-color: #fff;
             border-radius: 6px;
             overflow: hidden;
             border: 1px solid #ddd;
-            /* Subtle white glow on black BG */
             box-shadow: 0 5px 20px rgba(255, 255, 255, 0.08);
             transition: transform 0.3s ease;
         }
@@ -215,14 +204,14 @@
         }
 
         .total-price-large {
-            font-size: 1.5em; /* Proportional size */
+            font-size: 1.5em;
             font-weight: 900;
             color: #000;
             letter-spacing: -0.5px;
         }
 
         .btn-checkout-black {
-            background-color: #111; /* Dark black button */
+            background-color: #111;
             color: #fff;
             padding: 18px 45px;
             text-decoration: none;
@@ -257,7 +246,7 @@
         <span class="item-count-badge"><%= totalItems %> <%= totalItems == 1 ? "ITEM" : "ITEMS" %></span>
     </div>
 
-    <% if (cart.isEmpty()) { %>
+    <% if (cart.getItemCount() == 0) { %>
     <div class="empty-msg">
         <p style="font-size: 1.2em; color: #666;">Your bag is currently empty.</p>
         <br><br>
@@ -266,15 +255,15 @@
     <% } else { %>
 
     <%-- Loop through cart items --%>
-    <% for (int i = 0; i < cart.size(); i++) {
-        Map<String, String> item = cart.get(i);
+    <% for (int i = 0; i < cart.getItemCount(); i++) {
+        Product item = cart.getItems().get(i);
     %>
     <div class="cart-item">
-        <img src="<%= item.get("image") %>" alt="product" class="item-img">
+        <img src="<%= item.getImage() %>" alt="product" class="item-img">
         <div class="item-details">
-            <div class="item-name"><%= item.get("name") %></div>
-            <div class="item-id">ID: <%= item.get("id") %></div>
-            <div class="item-price">RM <%= String.format("%.2f", Double.parseDouble(item.get("price"))) %></div>
+            <div class="item-name"><%= item.getName() %></div>
+            <div class="item-id">ID: <%= item.getId() %></div>
+            <div class="item-price">RM <%= String.format("%.2f", item.getPrice()) %></div>
             <a href="addToCart.jsp?removeIndex=<%= i %>" class="btn-remove">Remove</a>
         </div>
     </div>

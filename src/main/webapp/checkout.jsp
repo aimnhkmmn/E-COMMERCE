@@ -1,23 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.Map" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="com.ecommerce.Product" %>
+<%@ page import="com.ecommerce.Cart" %>
 
 <jsp:include page="HomePageHTML/HomePageHeader.jsp" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/checkout.css">
 
 <%
     Object cartObj = session.getAttribute("cart");
-    ArrayList<Map<String, String>> cart = null;
-    if (cartObj instanceof ArrayList) {
-        cart = (ArrayList<Map<String, String>>) cartObj;
-    }
+    Cart cart = (cartObj instanceof Cart) ? (Cart) cartObj : new Cart();
 
-    double subtotal = 0;
-    if (cart != null) {
-        for (Map<String, String> item : cart) {
-            subtotal += Double.parseDouble(item.get("price"));
-        }
-    }
+    double subtotal = cart.getTotal();
     double shipping = (subtotal > 0) ? 15.00 : 0;
     double total = subtotal + shipping;
 %>
@@ -88,16 +80,16 @@
 
         <aside class="checkout-summary">
             <h2>Order Summary</h2>
-            <% if (cart == null || cart.isEmpty()) { %>
+            <% if (cart.getItemCount() == 0) { %>
                 <p>Your cart is empty.</p>
             <% } else { %>
                 <div class="summary-items">
-                    <% for (Map<String, String> item : cart) { %>
+                    <% for (Product item : cart.getItems()) { %>
                         <div class="summary-item">
-                            <img src="${pageContext.request.contextPath}/<%= item.get("image") %>" alt="<%= item.get("name") %>" class="item-image">
+                            <img src="${pageContext.request.contextPath}/<%= item.getImage() %>" alt="<%= item.getName() %>" class="item-image">
                             <div class="item-details">
-                                <span class="item-name"><%= item.get("name") %></span>
-                                <span class="item-price">$<%= String.format("%.2f", Double.parseDouble(item.get("price"))) %></span>
+                                <span class="item-name"><%= item.getName() %></span>
+                                <span class="item-price">$<%= String.format("%.2f", item.getPrice()) %></span>
                             </div>
                         </div>
                     <% } %>
