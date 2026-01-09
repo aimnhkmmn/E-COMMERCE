@@ -1,110 +1,91 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="com.ecommerce.Product" %>
 <%@ page import="com.ecommerce.ProductLoader" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
 
-<jsp:include page="HomePageHTML/HomePageHeader.jsp" />
-<link rel="stylesheet" href="css/shop-style.css">
-
 <%
-    // --- 1. SETUP ---
     String jsonPath = application.getRealPath("/data/products.json");
     List<Product> allProducts = ProductLoader.loadProducts(jsonPath);
     List<Product> filteredList = new ArrayList<>();
-
-    // --- 2. GET FILTER FROM URL ---
     String selectedType = request.getParameter("type");
 
-    if (allProducts != null) {
-        for (Product p : allProducts) {
-            if ("Women".equalsIgnoreCase(p.getCategory())) {
-                if (selectedType == null || selectedType.isEmpty() || selectedType.equalsIgnoreCase(p.getType())) {
-                    filteredList.add(p);
-                }
-            }
+    for (Product p : allProducts) {
+        if ("Women".equalsIgnoreCase(p.getCategory()) && (selectedType == null || selectedType.isEmpty() || selectedType.equalsIgnoreCase(p.getType()))) {
+            filteredList.add(p);
         }
     }
 
     int currentPage = 1;
-    int productsPerPage = 22;
     if (request.getParameter("page") != null) {
         currentPage = Integer.parseInt(request.getParameter("page"));
     }
-
+    int productsPerPage = 22;
     int totalProducts = filteredList.size();
     int totalPages = (int) Math.ceil((double) totalProducts / productsPerPage);
-
     int start = (currentPage - 1) * productsPerPage;
     int end = Math.min(start + productsPerPage, totalProducts);
-
     List<Product> displayList = filteredList.subList(start, end);
 %>
 
-<div class="shop-container">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Women's Shoes - FootWearHub</title>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/shop-style.css">
+</head>
+<body>
 
-    <aside class="shop-sidebar">
-        <div class="filter-group">
-            <h3>Category</h3>
-            <a href="women.jsp" style="display:block; margin:5px 0; color: #555; text-decoration: none;">All</a>
-            <a href="women.jsp?type=Running" style="display:block; margin:5px 0; color: #555; text-decoration: none;">Running</a>
-            <a href="women.jsp?type=Casual" style="display:block; margin:5px 0; color: #555; text-decoration: none;">Casual</a>
-            <a href="women.jsp?type=Basketball" style="display:block; margin:5px 0; color: #555; text-decoration: none;">Basketball</a>
-            <a href="women.jsp?type=Hiking" style="display:block; margin:5px 0; color: #555; text-decoration: none;">Hiking</a>
-        </div>
-    </aside>
+<jsp:include page="HomePageHTML/HomePageHeader.jsp" />
 
-    <main class="shop-content">
-        <div class="shop-header">
-            <h2>Women's Shoes</h2>
-            <p>Showing <%= displayList.size() %> of <%= totalProducts %> products</p>
-        </div>
-
-        <div class="product-grid">
-            <% for (Product p : displayList) { %>
-            <div class="product-card">
-                <% if (p.isNew()) { %>
-                <div class="badge-new">New</div>
-                <% } else if (p.isSale()) { %>
-                <div class="badge-sale">Sale</div>
-                <% } %>
-
-                <div class="card-image-box">
-                    <a href="product-details.jsp?id=<%= p.getId() %>">
-                        <img src="${pageContext.request.contextPath}/<%= p.getImage() %>" alt="<%= p.getName() %>">
+<main class="content-wrapper">
+    <div class="shop-container">
+        <aside class="shop-sidebar">
+            <div class="filter-group">
+                <h3>Category</h3>
+                <a href="women.jsp">All</a>
+                <a href="women.jsp?type=Running">Running</a>
+                <a href="women.jsp?type=Casual">Casual</a>
+                <a href="women.jsp?type=Basketball">Basketball</a>
+            </div>
+        </aside>
+        <main class="shop-content">
+            <div class="shop-header">
+                <h2>Women's Shoes</h2>
+                <p>Showing <%= displayList.size() %> of <%= totalProducts %> products</p>
+            </div>
+            <div class="product-grid">
+                <% for (Product p : displayList) { %>
+                <div class="product-card">
+                    <% if (p.isNew()) { %><div class="badge-new">New</div><% } else if (p.isSale()) { %><div class="badge-sale">Sale</div><% } %>
+                    <a href="product-details.jsp?id=<%= p.getId() %>" class="card-image-box">
+                        <img src="<%= p.getImage() %>" alt="<%= p.getName() %>">
                     </a>
-                </div>
-
-                <div class="card-details">
-                    <span class="brand"><%= p.getBrand() %></span>
-                    <h4>
-                        <a href="product-details.jsp?id=<%= p.getId() %>" style="text-decoration: none; color: inherit;">
-                            <%= p.getName() %>
-                        </a>
-                    </h4>
-                    <p><%= p.getDescription() %></p>
-                    <div class="price-row">
-                        <span class="current-price">$<%= p.getPrice() %></span>
+                    <div class="card-details">
+                        <span class="brand"><%= p.getBrand() %></span>
+                        <h4><a href="product-details.jsp?id=<%= p.getId() %>"><%= p.getName() %></a></h4>
+                        <p><%= p.getDescription() %></p>
+                        <div class="price-row"><span class="current-price">$<%= p.getPrice() %></span></div>
+                        <form action="addToCart.jsp" method="POST"><input type="hidden" name="productId" value="<%= p.getId() %>"><button type="submit" class="btn-add-cart">Add to Cart</button></form>
                     </div>
-                    <button class="btn-add-cart">Add to Cart</button>
                 </div>
+                <% } %>
+                <% if (displayList.isEmpty()) { %><p>No products found.</p><% } %>
             </div>
-            <% } %>
-            <% if (displayList.isEmpty()) { %>
-            <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
-                <h3>No women's products found.</h3>
+            <div class="pagination">
+                <a href="women.jsp?page=<%= currentPage - 1 %><% if (selectedType != null) {%>&type=<%= selectedType %><% } %>" class="<%= (currentPage > 1) ? "" : "disabled" %>">&laquo;</a>
+                <% for (int i = 1; i <= totalPages; i++) { %>
+                <a href="women.jsp?page=<%= i %><% if (selectedType != null) {%>&type=<%= selectedType %><% } %>" class="<%= (i == currentPage) ? "active" : "" %>"><%= i %></a>
+                <% } %>
+                <a href="women.jsp?page=<%= currentPage + 1 %><% if (selectedType != null) {%>&type=<%= selectedType %><% } %>" class="<%= (currentPage < totalPages) ? "" : "disabled" %>">&raquo;</a>
             </div>
-            <% } %>
-        </div>
-
-        <div class="pagination">
-            <a href="women.jsp?page=<%= currentPage - 1 %><% if (selectedType != null) {%>&type=<%= selectedType %><% } %>" class="<%= (currentPage > 1) ? "" : "disabled" %>">&laquo;</a>
-            <% for (int i = 1; i <= totalPages; i++) { %>
-            <a href="women.jsp?page=<%= i %><% if (selectedType != null) {%>&type=<%= selectedType %><% } %>" class="<%= (i == currentPage) ? "active" : "" %>"><%= i %></a>
-            <% } %>
-            <a href="women.jsp?page=<%= currentPage + 1 %><% if (selectedType != null) {%>&type=<%= selectedType %><% } %>" class="<%= (currentPage < totalPages) ? "" : "disabled" %>">&raquo;</a>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
+</main>
 
 <jsp:include page="HomePageHTML/HomePageFooter.jsp" />
+
+</body>
+</html>

@@ -1,24 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.Map" %>
-
+<%@ page import="com.ecommerce.Cart" %>
 <%
-    // 2. ADD THIS LOGIC TO GET THE CART SIZE
     int cartCount = 0;
-    ArrayList<Map<String, String>> headerCart = (ArrayList<Map<String, String>>) session.getAttribute("cart");
-    if (headerCart != null) {
-        cartCount = headerCart.size();
+    Object cartObj = session.getAttribute("cart");
+    if (cartObj instanceof Cart) {
+        cartCount = ((Cart) cartObj).getItemCount();
     }
 %>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>FootWearHub</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
 
 <nav class="navbar">
     <div class="nav-container">
@@ -35,19 +22,18 @@
         </div>
 
         <div class="nav-actions">
-            <form action="search-results.jsp" method="get" style="display: flex; align-items: center;">
-                <input type="text" name="q" placeholder="Search shoes..."
-                       style="padding: 8px 15px; border: 1px solid #ccc; border-radius: 20px; outline: none; width: 200px;">
+            <form action="#" method="get" style="display: flex; align-items: center;">
+                <label>
+                    <input type="text" name="q" placeholder="Search shoes..."
+                           style="padding: 8px 15px; border: 1px solid #ccc; border-radius: 20px; outline: none; width: 200px;">
+                </label>
                 <button type="submit" style="display: none;">Search</button>
             </form>
 
-            <%-- 3. UPDATED CART LINK --%>
             <a href="addToCart.jsp" class="nav-item">Cart (<%= cartCount %>)</a>
 
-            <a href="login.jsp" class="btn-login">Login</a>
+            <a href="#" class="btn-login">Login</a>
         </div>
 
     </div>
 </nav>
-
-<main class="content-wrapper">
