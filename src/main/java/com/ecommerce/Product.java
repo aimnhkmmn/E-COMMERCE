@@ -11,9 +11,10 @@ public class Product {
     private boolean isNew;
     private boolean isSale;
     private String brand;
+    private String description;
 
     // Constructor
-    public Product(int id, String name, double price, String category, String type, String image, boolean isNew, boolean isSale, String brand) {
+    public Product(int id, String name, double price, String category, String type, String image, boolean isNew, boolean isSale, String brand, String description) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -23,6 +24,7 @@ public class Product {
         this.isNew = isNew;
         this.isSale = isSale;
         this.brand = brand;
+        this.description = description;
     }
 
     // Getter methods (Required for JSP to read the data)
@@ -35,4 +37,5 @@ public class Product {
     public boolean isNew() { return isNew; }
     public boolean isSale() { return isSale; }
     public String getBrand() { return brand;}
+    public String getDescription() { return description; }
 }

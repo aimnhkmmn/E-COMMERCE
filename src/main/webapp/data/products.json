@@ -5,10 +5,11 @@
     "price": 120.0,
     "category": "Men",
     "type": "Running",
-    "image": "src/main/webapp/images/shoe1.jpg",
+    "image": "images/shoe1.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "Experience the ultimate in comfort and style with the Nike Air Max Pulse. These running shoes are designed for the modern man."
   },
   {
     "id": 2,
@@ -16,10 +17,11 @@
     "price": 140.0,
     "category": "Men",
     "type": "Running",
-    "image": "src/main/webapp/images/shoe2.jpg",
+    "image": "images/shoe2.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "Unleash your inner speed demon with these cutting-edge running shoes from Adidas. Perfect for hitting the track or the streets."
   },
   {
     "id": 3,
@@ -27,10 +29,11 @@
     "price": 180.0,
     "category": "Men",
     "type": "Basketball",
-    "image": "src/main/webapp/images/shoe3.jpg",
+    "image": "images/shoe3.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "Step up your game with the iconic Jordan Retro High. A timeless classic that offers both style and performance on the basketball court."
   },
   {
     "id": 4,
@@ -38,10 +41,11 @@
     "price": 110.0,
     "category": "Women",
     "type": "Running",
-    "image": "src/main/webapp/images/shoe4.jpg",
+    "image": "images/shoe4.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "Feel the responsive cushioning of Nike Air Zoom. These women's running shoes are perfect for your daily miles."
   },
   {
     "id": 5,
@@ -49,10 +53,11 @@
     "price": 160.0,
     "category": "Women",
     "type": "Running",
-    "image": "src/main/webapp/images/shoe5.jpg",
+    "image": "images/shoe5.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "Experience the incredible energy return of Adidas Ultraboost Light. The perfect running shoe for the modern woman."
   },
   {
     "id": 6,
@@ -60,10 +65,11 @@
     "price": 85.0,
     "category": "Kids",
     "type": "Running",
-    "image": "src/main/webapp/images/shoe6.jpg",
+    "image": "images/shoe6.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "Let your little one run wild in the Puma RS-X Kids. These shoes are all about comfort, style, and fun."
   },
   {
     "id": 7,
@@ -71,10 +77,11 @@
     "price": 53.14,
     "category": "Men",
     "type": "Basketball",
-    "image": "src/main/webapp/images/shoe7.jpg",
+    "image": "images/shoe7.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "Dominate the court with the Adidas Men Running Shoe 1. A perfect blend of style and performance for the modern basketball player."
   },
   {
     "id": 8,
@@ -82,10 +89,11 @@
     "price": 56.28,
     "category": "Women",
     "type": "Casual",
-    "image": "src/main/webapp/images/shoe8.jpg",
+    "image": "images/shoe8.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "Step out in style with the Puma Women Casual Shoe 2. A versatile and comfortable choice for any casual occasion."
   },
   {
     "id": 9,
@@ -93,10 +101,11 @@
     "price": 59.42,
     "category": "Kids",
     "type": "Lifestyle",
-    "image": "src/main/webapp/images/shoe9.jpg",
+    "image": "images/shoe9.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Reebok"
+    "brand": "Reebok",
+    "description": "The Reebok Kids Lifestyle Shoe 3 is perfect for everyday adventures. Stylish, comfortable, and built to last."
   },
   {
     "id": 10,
@@ -104,10 +113,11 @@
     "price": 62.56,
     "category": "Men",
     "type": "Training",
-    "image": "src/main/webapp/images/shoe10.jpg",
+    "image": "images/shoe10.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "New Balance"
+    "brand": "New Balance",
+    "description": "Take your training to the next level with the New Balance Men Training Shoe 4. Designed for maximum performance and comfort."
   },
   {
     "id": 11,
@@ -115,10 +125,11 @@
     "price": 65.7,
     "category": "Women",
     "type": "Skate",
-    "image": "src/main/webapp/images/shoe11.jpg",
+    "image": "images/shoe11.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "ASICS"
+    "brand": "ASICS",
+    "description": "Hit the skate park in style with the ASICS Women Skate Shoe 5. A durable and stylish choice for any skater."
   },
   {
     "id": 12,
@@ -129,7 +140,8 @@
     "image": "images/shoe12.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Skechers"
+    "brand": "Skechers",
+    "description": "The Skechers Kids Walking Shoe 6 is perfect for little feet on the go. Comfortable, supportive, and easy to wear."
   },
   {
     "id": 13,
@@ -140,7 +152,8 @@
     "image": "images/shoe13.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Vans"
+    "brand": "Vans",
+    "description": "Hit the pavement in the Vans Men Running Shoe 7. A stylish and comfortable choice for your daily run."
   },
   {
     "id": 14,
@@ -151,7 +164,8 @@
     "image": "images/shoe14.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Converse"
+    "brand": "Converse",
+    "description": "Rule the court in the Converse Women Basketball Shoe 8. A classic design with modern performance features."
   },
   {
     "id": 15,
@@ -162,7 +176,8 @@
     "image": "images/shoe15.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "The Nike Kids Casual Shoe 9 is the perfect everyday shoe for active kids. Stylish, comfortable, and durable."
   },
   {
     "id": 16,
@@ -173,7 +188,8 @@
     "image": "images/shoe16.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "The Adidas Men Lifestyle Shoe 10 is a versatile and stylish choice for any occasion. Dress it up or down."
   },
   {
     "id": 17,
@@ -184,7 +200,8 @@
     "image": "images/shoe17.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "Crush your workout in the Puma Women Training Shoe 11. Designed for high-intensity training and maximum comfort."
   },
   {
     "id": 18,
@@ -195,7 +212,8 @@
     "image": "images/shoe18.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Reebok"
+    "brand": "Reebok",
+    "description": "The Reebok Kids Skate Shoe 12 is perfect for young skaters. Durable, stylish, and ready for the skate park."
   },
   {
     "id": 19,
@@ -206,7 +224,8 @@
     "image": "images/shoe19.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "New Balance"
+    "brand": "New Balance",
+    "description": "Enjoy your daily walk in the New Balance Men Walking Shoe 13. A comfortable and supportive shoe for all-day wear."
   },
   {
     "id": 20,
@@ -217,7 +236,8 @@
     "image": "images/shoe20.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "ASICS"
+    "brand": "ASICS",
+    "description": "Go the distance in the ASICS Women Running Shoe 14. A reliable and comfortable choice for long-distance runners."
   },
   {
     "id": 21,
@@ -228,7 +248,8 @@
     "image": "images/shoe21.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Skechers"
+    "brand": "Skechers",
+    "description": "The Skechers Kids Basketball Shoe 15 is perfect for young ballers. Supportive, comfortable, and ready for the court."
   },
   {
     "id": 22,
@@ -239,7 +260,8 @@
     "image": "images/shoe22.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Vans"
+    "brand": "Vans",
+    "description": "The Vans Men Casual Shoe 16 is a timeless classic. A versatile and stylish choice for any casual outfit."
   },
   {
     "id": 23,
@@ -250,7 +272,8 @@
     "image": "images/shoe23.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Converse"
+    "brand": "Converse",
+    "description": "The Converse Women Lifestyle Shoe 17 is a must-have for any wardrobe. A classic design that never goes out of style."
   },
   {
     "id": 24,
@@ -261,7 +284,8 @@
     "image": "images/shoe24.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "The Nike Kids Training Shoe 18 is perfect for active kids. A durable and supportive shoe for all their activities."
   },
   {
     "id": 25,
@@ -272,7 +296,8 @@
     "image": "images/shoe25.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "The Adidas Men Skate Shoe 19 is a stylish and durable choice for any skater. Ready for the street or the park."
   },
   {
     "id": 26,
@@ -283,7 +308,8 @@
     "image": "images/shoe26.jpg",
     "isNew": true,
     "isSale": true,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "Enjoy your walk in the Puma Women Walking Shoe 20. A comfortable and stylish shoe for your daily stroll."
   },
   {
     "id": 27,
@@ -294,7 +320,8 @@
     "image": "images/shoe27.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Reebok"
+    "brand": "Reebok",
+    "description": "The Reebok Kids Running Shoe 21 is perfect for young runners. A comfortable and supportive shoe for their active lifestyle."
   },
   {
     "id": 28,
@@ -305,7 +332,8 @@
     "image": "images/shoe28.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "New Balance"
+    "brand": "New Balance",
+    "description": "The New Balance Men Basketball Shoe 22 is a high-performance shoe for serious players. Experience the difference."
   },
   {
     "id": 29,
@@ -316,7 +344,8 @@
     "image": "images/shoe29.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "ASICS"
+    "brand": "ASICS",
+    "description": "The ASICS Women Casual Shoe 23 is a comfortable and stylish choice for everyday wear. A perfect addition to your wardrobe."
   },
   {
     "id": 30,
@@ -327,7 +356,8 @@
     "image": "images/shoe30.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Skechers"
+    "brand": "Skechers",
+    "description": "The Skechers Kids Lifestyle Shoe 24 is perfect for stylish kids. A comfortable and trendy choice for any occasion."
   },
   {
     "id": 31,
@@ -338,7 +368,8 @@
     "image": "images/shoe31.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Vans"
+    "brand": "Vans",
+    "description": "The Vans Men Training Shoe 25 is a durable and stylish choice for your workout. Get the most out of your training."
   },
   {
     "id": 32,
@@ -349,7 +380,8 @@
     "image": "images/shoe32.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Converse"
+    "brand": "Converse",
+    "description": "The Converse Women Skate Shoe 26 is a classic choice for any skater. A timeless design with modern features."
   },
   {
     "id": 33,
@@ -360,7 +392,8 @@
     "image": "images/shoe33.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "The Nike Kids Walking Shoe 27 is perfect for little explorers. A comfortable and supportive shoe for their adventures."
   },
   {
     "id": 34,
@@ -371,7 +404,8 @@
     "image": "images/shoe34.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "The Adidas Men Running Shoe 28 is a high-performance shoe for serious runners. Experience the best in running technology."
   },
   {
     "id": 35,
@@ -382,7 +416,8 @@
     "image": "images/shoe35.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "The Puma Women Basketball Shoe 29 is a stylish and supportive choice for the court. Play your best game in style."
   },
   {
     "id": 36,
@@ -393,7 +428,8 @@
     "image": "images/shoe36.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Reebok"
+    "brand": "Reebok",
+    "description": "The Reebok Kids Casual Shoe 30 is a comfortable and stylish choice for everyday wear. Perfect for school or play."
   },
   {
     "id": 37,
@@ -404,7 +440,8 @@
     "image": "images/shoe37.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "New Balance"
+    "brand": "New Balance",
+    "description": "The New Balance Men Lifestyle Shoe 31 is a versatile and comfortable choice for any occasion. A modern classic."
   },
   {
     "id": 38,
@@ -415,7 +452,8 @@
     "image": "images/shoe38.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "ASICS"
+    "brand": "ASICS",
+    "description": "The ASICS Women Training Shoe 32 is a supportive and comfortable choice for your workout. Train harder and smarter."
   },
   {
     "id": 39,
@@ -426,7 +464,8 @@
     "image": "images/shoe39.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Skechers"
+    "brand": "Skechers",
+    "description": "The Skechers Kids Skate Shoe 33 is a durable and stylish choice for young skaters. Ready for all their tricks."
   },
   {
     "id": 40,
@@ -437,7 +476,8 @@
     "image": "images/shoe40.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Vans"
+    "brand": "Vans",
+    "description": "The Vans Men Walking Shoe 34 is a comfortable and stylish choice for your daily walk. A classic look with modern comfort."
   },
   {
     "id": 41,
@@ -448,7 +488,8 @@
     "image": "images/shoe41.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Converse"
+    "brand": "Converse",
+    "description": "The Converse Women Running Shoe 35 is a stylish and comfortable choice for your run. A modern take on a classic."
   },
   {
     "id": 42,
@@ -459,7 +500,8 @@
     "image": "images/shoe42.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "The Nike Kids Basketball Shoe 36 is a high-performance shoe for young players. Help them reach their full potential."
   },
   {
     "id": 43,
@@ -470,7 +512,8 @@
     "image": "images/shoe43.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "The Adidas Men Casual Shoe 37 is a versatile and stylish choice for any casual occasion. A modern classic."
   },
   {
     "id": 44,
@@ -481,7 +524,8 @@
     "image": "images/shoe44.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "The Puma Women Lifestyle Shoe 38 is a stylish and comfortable choice for everyday wear. A perfect addition to your wardrobe."
   },
   {
     "id": 45,
@@ -492,7 +536,8 @@
     "image": "images/shoe45.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Reebok"
+    "brand": "Reebok",
+    "description": "The Reebok Kids Training Shoe 39 is perfect for active kids. A durable and supportive shoe for all their activities."
   },
   {
     "id": 46,
@@ -503,7 +548,8 @@
     "image": "images/shoe46.jpg",
     "isNew": true,
     "isSale": true,
-    "brand": "New Balance"
+    "brand": "New Balance",
+    "description": "The New Balance Men Skate Shoe 40 is a stylish and durable choice for any skater. Ready for the street or the park."
   },
   {
     "id": 47,
@@ -514,7 +560,8 @@
     "image": "images/shoe47.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "ASICS"
+    "brand": "ASICS",
+    "description": "Enjoy your walk in the ASICS Women Walking Shoe 41. A comfortable and stylish shoe for your daily stroll."
   },
   {
     "id": 48,
@@ -525,7 +572,8 @@
     "image": "images/shoe48.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Skechers"
+    "brand": "Skechers",
+    "description": "The Skechers Kids Running Shoe 42 is perfect for young runners. A comfortable and supportive shoe for their active lifestyle."
   },
   {
     "id": 49,
@@ -536,7 +584,8 @@
     "image": "images/shoe49.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Vans"
+    "brand": "Vans",
+    "description": "The Vans Men Basketball Shoe 43 is a high-performance shoe for serious players. Experience the difference."
   },
   {
     "id": 50,
@@ -547,7 +596,8 @@
     "image": "images/shoe50.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Converse"
+    "brand": "Converse",
+    "description": "The Converse Women Casual Shoe 44 is a comfortable and stylish choice for everyday wear. A perfect addition to your wardrobe."
   },
   {
     "id": 51,
@@ -558,7 +608,8 @@
     "image": "images/shoe51.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "The Nike Kids Lifestyle Shoe 45 is perfect for stylish kids. A comfortable and trendy choice for any occasion."
   },
   {
     "id": 52,
@@ -569,7 +620,8 @@
     "image": "images/shoe52.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "The Adidas Men Training Shoe 46 is a durable and stylish choice for your workout. Get the most out of your training."
   },
   {
     "id": 53,
@@ -580,7 +632,8 @@
     "image": "images/shoe53.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "The Puma Women Skate Shoe 47 is a classic choice for any skater. A timeless design with modern features."
   },
   {
     "id": 54,
@@ -591,7 +644,8 @@
     "image": "images/shoe54.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Reebok"
+    "brand": "Reebok",
+    "description": "The Reebok Kids Walking Shoe 48 is perfect for little explorers. A comfortable and supportive shoe for their adventures."
   },
   {
     "id": 55,
@@ -602,7 +656,8 @@
     "image": "images/shoe55.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "New Balance"
+    "brand": "New Balance",
+    "description": "The New Balance Men Running Shoe 49 is a high-performance shoe for serious runners. Experience the best in running technology."
   },
   {
     "id": 56,
@@ -613,7 +668,8 @@
     "image": "images/shoe56.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "ASICS"
+    "brand": "ASICS",
+    "description": "The ASICS Women Basketball Shoe 50 is a stylish and supportive choice for the court. Play your best game in style."
   },
   {
     "id": 57,
@@ -624,7 +680,8 @@
     "image": "images/shoe57.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Skechers"
+    "brand": "Skechers",
+    "description": "The Skechers Men Casual Shoe 51 is a versatile and stylish choice for any casual occasion. A modern classic."
   },
   {
     "id": 58,
@@ -635,7 +692,8 @@
     "image": "images/shoe58.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Vans"
+    "brand": "Vans",
+    "description": "The Vans Women Lifestyle Shoe 52 is a stylish and comfortable choice for everyday wear. A perfect addition to your wardrobe."
   },
   {
     "id": 59,
@@ -646,7 +704,8 @@
     "image": "images/shoe59.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Converse"
+    "brand": "Converse",
+    "description": "The Converse Kids Training Shoe 53 is perfect for active kids. A durable and supportive shoe for all their activities."
   },
   {
     "id": 60,
@@ -657,7 +716,8 @@
     "image": "images/shoe60.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "The Nike Men Skate Shoe 54 is a stylish and durable choice for any skater. Ready for the street or the park."
   },
   {
     "id": 61,
@@ -668,7 +728,8 @@
     "image": "images/shoe61.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "Enjoy your walk in the Adidas Women Walking Shoe 55. A comfortable and stylish shoe for your daily stroll."
   },
   {
     "id": 62,
@@ -679,7 +740,8 @@
     "image": "images/shoe62.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "The Puma Kids Running Shoe 56 is perfect for young runners. A comfortable and supportive shoe for their active lifestyle."
   },
   {
     "id": 63,
@@ -690,7 +752,8 @@
     "image": "images/shoe63.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Reebok"
+    "brand": "Reebok",
+    "description": "The Reebok Men Basketball Shoe 57 is a high-performance shoe for serious players. Experience the difference."
   },
   {
     "id": 64,
@@ -701,7 +764,8 @@
     "image": "images/shoe64.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "New Balance"
+    "brand": "New Balance",
+    "description": "The New Balance Women Casual Shoe 58 is a comfortable and stylish choice for everyday wear. A perfect addition to your wardrobe."
   },
   {
     "id": 65,
@@ -712,7 +776,8 @@
     "image": "images/shoe65.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "ASICS"
+    "brand": "ASICS",
+    "description": "The ASICS Kids Lifestyle Shoe 59 is perfect for stylish kids. A comfortable and trendy choice for any occasion."
   },
   {
     "id": 66,
@@ -723,7 +788,8 @@
     "image": "images/shoe66.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Skechers"
+    "brand": "Skechers",
+    "description": "The Skechers Men Training Shoe 60 is a durable and stylish choice for your workout. Get the most out of your training."
   },
   {
     "id": 67,
@@ -734,7 +800,8 @@
     "image": "images/shoe67.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Vans"
+    "brand": "Vans",
+    "description": "The Vans Women Skate Shoe 61 is a classic choice for any skater. A timeless design with modern features."
   },
   {
     "id": 68,
@@ -745,7 +812,8 @@
     "image": "images/shoe68.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Converse"
+    "brand": "Converse",
+    "description": "The Converse Kids Walking Shoe 62 is perfect for little explorers. A comfortable and supportive shoe for their adventures."
   },
   {
     "id": 69,
@@ -756,7 +824,8 @@
     "image": "images/shoe69.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "The Nike Men Running Shoe 63 is a high-performance shoe for serious runners. Experience the best in running technology."
   },
   {
     "id": 70,
@@ -767,7 +836,8 @@
     "image": "images/shoe70.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "The Adidas Women Basketball Shoe 64 is a stylish and supportive choice for the court. Play your best game in style."
   },
   {
     "id": 71,
@@ -778,7 +848,8 @@
     "image": "images/shoe71.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "The Puma Kids Casual Shoe 65 is a comfortable and stylish choice for everyday wear. Perfect for school or play."
   },
   {
     "id": 72,
@@ -789,7 +860,8 @@
     "image": "images/shoe72.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Reebok"
+    "brand": "Reebok",
+    "description": "The Reebok Men Lifestyle Shoe 66 is a versatile and comfortable choice for any occasion. A modern classic."
   },
   {
     "id": 73,
@@ -800,7 +872,8 @@
     "image": "images/shoe73.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "New Balance"
+    "brand": "New Balance",
+    "description": "The New Balance Women Training Shoe 67 is a supportive and comfortable choice for your workout. Train harder and smarter."
   },
   {
     "id": 74,
@@ -811,7 +884,8 @@
     "image": "images/shoe74.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "ASICS"
+    "brand": "ASICS",
+    "description": "The ASICS Kids Skate Shoe 68 is a durable and stylish choice for young skaters. Ready for all their tricks."
   },
   {
     "id": 75,
@@ -822,7 +896,8 @@
     "image": "images/shoe75.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Skechers"
+    "brand": "Skechers",
+    "description": "The Skechers Men Walking Shoe 69 is a comfortable and stylish choice for your daily walk. A classic look with modern comfort."
   },
   {
     "id": 76,
@@ -833,7 +908,8 @@
     "image": "images/shoe76.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Vans"
+    "brand": "Vans",
+    "description": "The Vans Women Running Shoe 70 is a stylish and comfortable choice for your run. A modern take on a classic."
   },
   {
     "id": 77,
@@ -844,7 +920,8 @@
     "image": "images/shoe77.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Converse"
+    "brand": "Converse",
+    "description": "The Converse Kids Basketball Shoe 71 is a high-performance shoe for young players. Help them reach their full potential."
   },
   {
     "id": 78,
@@ -855,7 +932,8 @@
     "image": "images/shoe78.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "The Nike Men Casual Shoe 72 is a versatile and stylish choice for any casual occasion. A modern classic."
   },
   {
     "id": 79,
@@ -866,7 +944,8 @@
     "image": "images/shoe79.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "The Adidas Women Lifestyle Shoe 73 is a stylish and comfortable choice for everyday wear. A perfect addition to your wardrobe."
   },
   {
     "id": 80,
@@ -877,7 +956,8 @@
     "image": "images/shoe80.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "The Puma Kids Training Shoe 74 is perfect for active kids. A durable and supportive shoe for all their activities."
   },
   {
     "id": 81,
@@ -888,7 +968,8 @@
     "image": "images/shoe81.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Reebok"
+    "brand": "Reebok",
+    "description": "The Reebok Men Skate Shoe 75 is a stylish and durable choice for any skater. Ready for the street or the park."
   },
   {
     "id": 82,
@@ -899,7 +980,8 @@
     "image": "images/shoe82.jpg",
     "isNew": true,
     "isSale": true,
-    "brand": "New Balance"
+    "brand": "New Balance",
+    "description": "Enjoy your walk in the New Balance Women Walking Shoe 76. A comfortable and stylish shoe for your daily stroll."
   },
   {
     "id": 83,
@@ -910,7 +992,8 @@
     "image": "images/shoe83.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "ASICS"
+    "brand": "ASICS",
+    "description": "The ASICS Kids Running Shoe 77 is perfect for young runners. A comfortable and supportive shoe for their active lifestyle."
   },
   {
     "id": 84,
@@ -921,7 +1004,8 @@
     "image": "images/shoe84.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Skechers"
+    "brand": "Skechers",
+    "description": "The Skechers Men Basketball Shoe 78 is a high-performance shoe for serious players. Experience the difference."
   },
   {
     "id": 85,
@@ -932,7 +1016,8 @@
     "image": "images/shoe85.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Vans"
+    "brand": "Vans",
+    "description": "The Vans Women Casual Shoe 79 is a comfortable and stylish choice for everyday wear. A perfect addition to your wardrobe."
   },
   {
     "id": 86,
@@ -943,7 +1028,8 @@
     "image": "images/shoe86.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Converse"
+    "brand": "Converse",
+    "description": "The Converse Kids Lifestyle Shoe 80 is perfect for stylish kids. A comfortable and trendy choice for any occasion."
   },
   {
     "id": 87,
@@ -954,7 +1040,8 @@
     "image": "images/shoe87.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "The Nike Men Training Shoe 81 is a durable and stylish choice for your workout. Get the most out of your training."
   },
   {
     "id": 88,
@@ -965,7 +1052,8 @@
     "image": "images/shoe88.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "The Adidas Women Skate Shoe 82 is a classic choice for any skater. A timeless design with modern features."
   },
   {
     "id": 89,
@@ -976,7 +1064,8 @@
     "image": "images/shoe89.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "The Puma Kids Walking Shoe 83 is perfect for little explorers. A comfortable and supportive shoe for their adventures."
   },
   {
     "id": 90,
@@ -987,7 +1076,8 @@
     "image": "images/shoe90.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Reebok"
+    "brand": "Reebok",
+    "description": "The Reebok Men Running Shoe 84 is a high-performance shoe for serious runners. Experience the best in running technology."
   },
   {
     "id": 91,
@@ -998,7 +1088,8 @@
     "image": "images/shoe91.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "New Balance"
+    "brand": "New Balance",
+    "description": "The New Balance Women Basketball Shoe 85 is a stylish and supportive choice for the court. Play your best game in style."
   },
   {
     "id": 92,
@@ -1009,7 +1100,8 @@
     "image": "images/shoe92.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "ASICS"
+    "brand": "ASICS",
+    "description": "The ASICS Kids Casual Shoe 86 is a comfortable and stylish choice for everyday wear. Perfect for school or play."
   },
   {
     "id": 93,
@@ -1020,7 +1112,8 @@
     "image": "images/shoe93.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Skechers"
+    "brand": "Skechers",
+    "description": "The Skechers Men Lifestyle Shoe 87 is a versatile and comfortable choice for any occasion. A modern classic."
   },
   {
     "id": 94,
@@ -1031,7 +1124,8 @@
     "image": "images/shoe94.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Vans"
+    "brand": "Vans",
+    "description": "The Vans Women Training Shoe 88 is a supportive and comfortable choice for your workout. Train harder and smarter."
   },
   {
     "id": 95,
@@ -1042,7 +1136,8 @@
     "image": "images/shoe95.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Converse"
+    "brand": "Converse",
+    "description": "The Converse Kids Skate Shoe 89 is a durable and stylish choice for young skaters. Ready for all their tricks."
   },
   {
     "id": 96,
@@ -1053,7 +1148,8 @@
     "image": "images/shoe96.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "The Nike Men Walking Shoe 90 is a comfortable and stylish choice for your daily walk. A classic look with modern comfort."
   },
   {
     "id": 97,
@@ -1064,7 +1160,8 @@
     "image": "images/shoe97.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "The Adidas Women Running Shoe 91 is a stylish and comfortable choice for your run. A modern take on a classic."
   },
   {
     "id": 98,
@@ -1075,7 +1172,8 @@
     "image": "images/shoe98.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "The Puma Kids Basketball Shoe 92 is a high-performance shoe for young players. Help them reach their full potential."
   },
   {
     "id": 99,
@@ -1086,7 +1184,8 @@
     "image": "images/shoe99.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Reebok"
+    "brand": "Reebok",
+    "description": "The Reebok Men Casual Shoe 93 is a versatile and stylish choice for any casual occasion. A modern classic."
   },
   {
     "id": 100,
@@ -1097,7 +1196,8 @@
     "image": "images/shoe100.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "New Balance"
+    "brand": "New Balance",
+    "description": "The New Balance Women Lifestyle Shoe 94 is a stylish and comfortable choice for everyday wear. A perfect addition to your wardrobe."
   },
   {
     "id": 101,
@@ -1108,7 +1208,8 @@
     "image": "images/shoe101.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "ASICS"
+    "brand": "ASICS",
+    "description": "The ASICS Kids Training Shoe 95 is perfect for active kids. A durable and supportive shoe for all their activities."
   },
   {
     "id": 102,
@@ -1119,7 +1220,8 @@
     "image": "images/shoe102.jpg",
     "isNew": true,
     "isSale": true,
-    "brand": "Skechers"
+    "brand": "Skechers",
+    "description": "The Skechers Men Skate Shoe 96 is a stylish and durable choice for any skater. Ready for the street or the park."
   },
   {
     "id": 103,
@@ -1130,7 +1232,8 @@
     "image": "images/shoe103.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Vans"
+    "brand": "Vans",
+    "description": "Enjoy your walk in the Vans Women Walking Shoe 97. A comfortable and stylish shoe for your daily stroll."
   },
   {
     "id": 104,
@@ -1141,7 +1244,8 @@
     "image": "images/shoe104.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Converse"
+    "brand": "Converse",
+    "description": "The Converse Kids Running Shoe 98 is perfect for young runners. A comfortable and supportive shoe for their active lifestyle."
   },
   {
     "id": 105,
@@ -1152,7 +1256,8 @@
     "image": "images/shoe105.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "The Nike Men Basketball Shoe 99 is a high-performance shoe for serious players. Experience the difference."
   },
   {
     "id": 106,
@@ -1163,7 +1268,8 @@
     "image": "images/shoe106.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "The Adidas Women Casual Shoe 100 is a comfortable and stylish choice for everyday wear. A perfect addition to your wardrobe."
   },
   {
     "id": 107,
@@ -1174,7 +1280,8 @@
     "image": "images/shoe107.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "The Puma Kids Lifestyle Shoe 101 is perfect for stylish kids. A comfortable and trendy choice for any occasion."
   },
   {
     "id": 108,
@@ -1185,7 +1292,8 @@
     "image": "images/shoe108.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Reebok"
+    "brand": "Reebok",
+    "description": "The Reebok Men Training Shoe 102 is a durable and stylish choice for your workout. Get the most out of your training."
   },
   {
     "id": 109,
@@ -1196,7 +1304,8 @@
     "image": "images/shoe109.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "New Balance"
+    "brand": "New Balance",
+    "description": "The New Balance Women Skate Shoe 103 is a classic choice for any skater. A timeless design with modern features."
   },
   {
     "id": 110,
@@ -1207,7 +1316,8 @@
     "image": "images/shoe110.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "ASICS"
+    "brand": "ASICS",
+    "description": "The ASICS Kids Walking Shoe 104 is perfect for little explorers. A comfortable and supportive shoe for their adventures."
   },
   {
     "id": 111,
@@ -1218,7 +1328,8 @@
     "image": "images/shoe111.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Skechers"
+    "brand": "Skechers",
+    "description": "The Skechers Men Running Shoe 105 is a high-performance shoe for serious runners. Experience the best in running technology."
   },
   {
     "id": 112,
@@ -1229,7 +1340,8 @@
     "image": "images/shoe112.jpg",
     "isNew": true,
     "isSale": false,
-    "brand": "Vans"
+    "brand": "Vans",
+    "description": "The Vans Women Basketball Shoe 106 is a stylish and supportive choice for the court. Play your best game in style."
   },
   {
     "id": 113,
@@ -1240,7 +1352,8 @@
     "image": "images/shoe113.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Converse"
+    "brand": "Converse",
+    "description": "The Converse Kids Casual Shoe 107 is a comfortable and stylish choice for everyday wear. Perfect for school or play."
   },
   {
     "id": 114,
@@ -1251,7 +1364,8 @@
     "image": "images/shoe114.jpg",
     "isNew": false,
     "isSale": true,
-    "brand": "Nike"
+    "brand": "Nike",
+    "description": "The Nike Men Lifestyle Shoe 108 is a versatile and comfortable choice for any occasion. A modern classic."
   },
   {
     "id": 115,
@@ -1262,7 +1376,8 @@
     "image": "images/shoe115.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Adidas"
+    "brand": "Adidas",
+    "description": "The Adidas Women Training Shoe 109 is a supportive and comfortable choice for your workout. Train harder and smarter."
   },
   {
     "id": 116,
@@ -1273,6 +1388,7 @@
     "image": "images/shoe116.jpg",
     "isNew": false,
     "isSale": false,
-    "brand": "Puma"
+    "brand": "Puma",
+    "description": "The Puma Kids Skate Shoe 110 is a durable and stylish choice for young skaters. Ready for all their tricks."
   }
 ]

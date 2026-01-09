@@ -5,31 +5,41 @@
 <%@ page import="java.util.List" %>
 
 <jsp:include page="HomePageHTML/HomePageHeader.jsp" />
-
 <link rel="stylesheet" href="css/shop-style.css">
 
 <%
     // --- 1. SETUP ---
     String jsonPath = application.getRealPath("/data/products.json");
     List<Product> allProducts = ProductLoader.loadProducts(jsonPath);
-    List<Product> displayList = new ArrayList<>();
+    List<Product> filteredList = new ArrayList<>();
 
-    // --- 2. GET FILTER ---
+    // --- 2. GET FILTER FROM URL ---
     String selectedType = request.getParameter("type");
 
     if (allProducts != null) {
         for (Product p : allProducts) {
-
-            // FILTER 1: Only look for "Women" shoes
             if ("Kids".equalsIgnoreCase(p.getCategory())) {
-
-                // FILTER 2: Check the 'type'
                 if (selectedType == null || selectedType.isEmpty() || selectedType.equalsIgnoreCase(p.getType())) {
-                    displayList.add(p);
+                    filteredList.add(p);
                 }
             }
         }
     }
+
+    // --- 3. PAGINATION LOGIC ---
+    int currentPage = 1;
+    int productsPerPage = 22;
+    if (request.getParameter("page") != null) {
+        currentPage = Integer.parseInt(request.getParameter("page"));
+    }
+
+    int totalProducts = filteredList.size();
+    int totalPages = (int) Math.ceil((double) totalProducts / productsPerPage);
+
+    int start = (currentPage - 1) * productsPerPage;
+    int end = Math.min(start + productsPerPage, totalProducts);
+
+    List<Product> displayList = filteredList.subList(start, end);
 %>
 
 <div class="shop-container">
@@ -46,18 +56,14 @@
     </aside>
 
     <main class="shop-content">
-
         <div class="shop-header">
-            <h2>Kids's Shoes</h2>
-            <p>Showing <%= displayList.size() %> products</p>
+            <h2>Kids' Shoes</h2>
+            <p>Showing <%= displayList.size() %> of <%= totalProducts %> products</p>
         </div>
 
         <div class="product-grid">
-
             <% for (Product p : displayList) { %>
-
             <div class="product-card">
-
                 <% if (p.isNew()) { %>
                 <div class="badge-new">New</div>
                 <% } else if (p.isSale()) { %>
@@ -77,23 +83,27 @@
                             <%= p.getName() %>
                         </a>
                     </h4>
-
+                    <p><%= p.getDescription() %></p>
                     <div class="price-row">
                         <span class="current-price">$<%= p.getPrice() %></span>
                     </div>
-
                     <button class="btn-add-cart">Add to Cart</button>
                 </div>
             </div>
-
             <% } %>
-
             <% if (displayList.isEmpty()) { %>
             <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
-                <h3>No kids's products found.</h3>
+                <h3>No kids' products found.</h3>
             </div>
             <% } %>
+        </div>
 
+        <div class="pagination">
+            <a href="kids.jsp?page=<%= currentPage - 1 %><% if (selectedType != null) {%>&type=<%= selectedType %><% } %>" class="<%= (currentPage > 1) ? "" : "disabled" %>">&laquo;</a>
+            <% for (int i = 1; i <= totalPages; i++) { %>
+            <a href="kids.jsp?page=<%= i %><% if (selectedType != null) {%>&type=<%= selectedType %><% } %>" class="<%= (i == currentPage) ? "active" : "" %>"><%= i %></a>
+            <% } %>
+            <a href="kids.jsp?page=<%= currentPage + 1 %><% if (selectedType != null) {%>&type=<%= selectedType %><% } %>" class="<%= (currentPage < totalPages) ? "" : "disabled" %>">&raquo;</a>
         </div>
     </main>
 </div>

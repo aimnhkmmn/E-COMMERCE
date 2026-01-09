@@ -4,63 +4,72 @@
 <%@ page import="java.util.List" %>
 
 <jsp:include page="HomePageHTML/HomePageHeader.jsp" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/shop-style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/product-details.css">
+
 <%
-    // 1. Get the ID from the URL (e.g., ?id=2)
     String idParam = request.getParameter("id");
-    Product selectedProduct = null;
-
-    // 2. Load all products
-    String jsonPath = application.getRealPath("/data/products.json");
-    List<Product> allProducts = ProductLoader.loadProducts(jsonPath);
-
-    // 3. Find the matching product
-    if (idParam != null && allProducts != null) {
-        int targetId = Integer.parseInt(idParam);
-        for (Product p : allProducts) {
-            if (p.getId() == targetId) {
-                selectedProduct = p;
-                break;
+    Product product = null;
+    if (idParam != null) {
+        try {
+            int productId = Integer.parseInt(idParam);
+            String jsonPath = application.getRealPath("/data/products.json");
+            List<Product> allProducts = ProductLoader.loadProducts(jsonPath);
+            for (Product p : allProducts) {
+                if (p.getId() == productId) {
+                    product = p;
+                    break;
+                }
             }
+        } catch (NumberFormatException e) {
+            // Handle invalid ID format
         }
     }
 %>
 
-<div class="shop-container" style="justify-content: center; margin-top: 50px;">
-
-    <% if (selectedProduct != null) { %>
-
-    <div class="detail-image" style="flex: 1; max-width: 500px;">
-        <img src="${pageContext.request.contextPath}/<%= selectedProduct.getImage() %>"
-             alt="<%= selectedProduct.getName() %>" style="width: 100%; border-radius: 10px;">
-    </div>
-
-    <div class="detail-info" style="flex: 1; max-width: 500px; padding-left: 50px;">
-        <h4 style="color: #888; text-transform: uppercase;">Men's Shoe</h4>
-        <h1 style="font-size: 2.5rem; margin: 10px 0;"><%= selectedProduct.getName() %></h1>
-        <h2 style="font-size: 1.8rem; margin-bottom: 20px;">$<%= selectedProduct.getPrice() %></h2>
-
-        <p style="color: #555; line-height: 1.6; margin-bottom: 30px;">
-            Experience ultimate comfort and style with the <%= selectedProduct.getName() %>.
-            Perfect for daily wear or your next adventure.
-        </p>
-
-        <div class="size-selector" style="margin-bottom: 30px;">
-            <h4 style="margin-bottom: 10px;">Select Size</h4>
-            <div class="size-grid" style="grid-template-columns: repeat(5, 1fr);">
-                <button>7</button> <button>8</button> <button>9</button>
-                <button>10</button> <button>11</button>
-            </div>
+<% if (product != null) { %>
+<div class="details-container">
+    <div class="details-left">
+        <div class="image-showcase">
+            <img src="${pageContext.request.contextPath}/<%= product.getImage() %>" alt="<%= product.getName() %>">
         </div>
-
-        <button class="btn-add-cart" style="font-size: 1.1rem; padding: 15px;">Add to Cart</button>
     </div>
+    <div class="details-right">
+        <span class="product-brand"><%= product.getBrand() %></span>
+        <h1 class="product-title"><%= product.getName() %></h1>
+        <p class="product-description"><%= product.getDescription() %></p>
+        <div class="product-price">$<%= String.format("%.2f", product.getPrice()) %></div>
 
-    <% } else { %>
-    <h1>Product not found!</h1>
-    <p>Go back to <a href="men.jsp">Shop</a></p>
-    <% } %>
+        <form action="addToCart.jsp" method="POST">
+            <input type="hidden" name="productId" value="<%= product.getId() %>">
+            <input type="hidden" name="productName" value="<%= product.getName() %>">
+            <input type="hidden" name="productPrice" value="<%= product.getPrice() %>">
+            <input type="hidden" name="productImage" value="<%= product.getImage() %>">
 
+            <div class="size-selection">
+                <h3 class="size-title">Select Size</h3>
+                <div class="size-options">
+                    <button class="size-btn">7</button>
+                    <button class="size-btn">8</button>
+                    <button class="size-btn active">9</button>
+                    <button class="size-btn">10</button>
+                    <button class="size-btn">11</button>
+                    <button class="size-btn">12</button>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button type="submit" class="btn-add-to-cart">Add to Cart</button>
+                <button type="button" class="btn-wishlist">&#9825;</button>
+            </div>
+        </form>
+    </div>
 </div>
+<% } else { %>
+<div class="error-container">
+    <h1>Product Not Found</h1>
+    <p>Sorry, the product you are looking for does not exist.</p>
+    <a href="${pageContext.request.contextPath}/index.jsp" class="btn-back">Back to Home</a>
+</div>
+<% } %>
 
 <jsp:include page="HomePageHTML/HomePageFooter.jsp" />

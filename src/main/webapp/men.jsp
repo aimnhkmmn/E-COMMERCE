@@ -11,33 +11,40 @@
     // --- 1. SETUP ---
     String jsonPath = application.getRealPath("/data/products.json");
     List<Product> allProducts = ProductLoader.loadProducts(jsonPath);
-    List<Product> displayList = new ArrayList<>();
+    List<Product> filteredList = new ArrayList<>();
 
     // --- 2. GET FILTER FROM URL ---
-    // If user clicks a checkbox, the URL will look like: men.jsp?type=Running
     String selectedType = request.getParameter("type");
 
     if (allProducts != null) {
         for (Product p : allProducts) {
-
-            // First, make sure it's a Men's shoe
             if ("Men".equalsIgnoreCase(p.getCategory())) {
-
-                // --- 3. APPLY FILTER LOGIC ---
-                // If NO filter is selected, show everything.
-                // If a filter IS selected, only show shoes that match that type.
                 if (selectedType == null || selectedType.isEmpty() || selectedType.equalsIgnoreCase(p.getType())) {
-                    displayList.add(p);
+                    filteredList.add(p);
                 }
             }
         }
     }
+
+    // --- 3. PAGINATION LOGIC ---
+    int currentPage = 1;
+    int productsPerPage = 22;
+    if (request.getParameter("page") != null) {
+        currentPage = Integer.parseInt(request.getParameter("page"));
+    }
+
+    int totalProducts = filteredList.size();
+    int totalPages = (int) Math.ceil((double) totalProducts / productsPerPage);
+
+    int start = (currentPage - 1) * productsPerPage;
+    int end = Math.min(start + productsPerPage, totalProducts);
+
+    List<Product> displayList = filteredList.subList(start, end);
 %>
 
 <div class="shop-container">
 
     <aside class="shop-sidebar">
-
         <div class="filter-group">
             <h3>Category</h3>
             <a href="men.jsp" style="display:block; margin:5px 0; color: #555; text-decoration: none;">All</a>
@@ -45,25 +52,17 @@
             <a href="men.jsp?type=Casual" style="display:block; margin:5px 0; color: #555; text-decoration: none;">Casual</a>
             <a href="men.jsp?type=Basketball" style="display:block; margin:5px 0; color: #555; text-decoration: none;">Basketball</a>
         </div>
-
     </aside>
 
     <main class="shop-content">
-
         <div class="shop-header">
             <h2>Men's Shoes</h2>
-            <p>Showing <%= displayList.size() %> products</p>
+            <p>Showing <%= displayList.size() %> of <%= totalProducts %> products</p>
         </div>
 
         <div class="product-grid">
-
-            <%
-                // Loop through our PRE-FILTERED list
-                for (Product p : displayList) {
-            %>
-
+            <% for (Product p : displayList) { %>
             <div class="product-card">
-
                 <% if (p.isNew()) { %>
                 <div class="badge-new">New</div>
                 <% } else if (p.isSale()) { %>
@@ -83,21 +82,25 @@
                             <%= p.getName() %>
                         </a>
                     </h4>
-
+                    <p><%= p.getDescription() %></p>
                     <div class="price-row">
                         <span class="current-price">$<%= p.getPrice() %></span>
                     </div>
-
                     <button class="btn-add-cart">Add to Cart</button>
                 </div>
             </div>
-
-            <% } // End Loop %>
-
+            <% } %>
             <% if (displayList.isEmpty()) { %>
             <p>No products found in this category.</p>
             <% } %>
+        </div>
 
+        <div class="pagination">
+            <a href="men.jsp?page=<%= currentPage - 1 %><% if (selectedType != null) {%>&type=<%= selectedType %><% } %>" class="<%= (currentPage > 1) ? "" : "disabled" %>">&laquo;</a>
+            <% for (int i = 1; i <= totalPages; i++) { %>
+            <a href="men.jsp?page=<%= i %><% if (selectedType != null) {%>&type=<%= selectedType %><% } %>" class="<%= (i == currentPage) ? "active" : "" %>"><%= i %></a>
+            <% } %>
+            <a href="men.jsp?page=<%= currentPage + 1 %><% if (selectedType != null) {%>&type=<%= selectedType %><% } %>" class="<%= (currentPage < totalPages) ? "" : "disabled" %>">&raquo;</a>
         </div>
     </main>
 </div>
