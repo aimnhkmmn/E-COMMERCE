@@ -5,21 +5,21 @@ import java.util.List;
 
 public class Cart {
 
-    private final List<Product> items = new ArrayList<>();
+    private final List<CartItem> items = new ArrayList<>();
 
-    public void addProduct(Product product) {
-        if (product != null) {
-            items.add(product);
+    public void addProduct(Product product, String size) {
+        if (product != null && size != null && !size.isEmpty()) {
+            items.add(new CartItem(product, size));
         }
     }
 
-    public void removeProduct(int index) {
+    public void removeItem(int index) {
         if (index >= 0 && index < items.size()) {
             items.remove(index);
         }
     }
 
-    public List<Product> getItems() {
+    public List<CartItem> getItems() {
         return items;
     }
 
@@ -29,8 +29,8 @@ public class Cart {
 
     public double getTotal() {
         double total = 0;
-        for (Product item : items) {
-            total += item.getPrice();
+        for (CartItem item : items) {
+            total += item.getProduct().getPrice();
         }
         return total;
     }

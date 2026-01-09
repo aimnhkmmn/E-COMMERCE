@@ -1,4 +1,3 @@
-</main>
 <footer class="site-footer">
     <div class="footer-container">
 
@@ -10,7 +9,7 @@
         <div class="footer-col">
             <h4>Shop</h4>
             <ul>
-                <li><a href="new-featured.jsp">New Arrivals</a></li>
+                <li><a href="#">New Arrivals</a></li>
                 <li><a href="men.jsp">Men</a></li>
                 <li><a href="women.jsp">Women</a></li>
                 <li><a href="kids.jsp">Kids</a></li>
@@ -40,5 +39,3 @@
     </div>
 </footer>
 <script src="js/script.js" defer></script>
-</body>
-</html>
