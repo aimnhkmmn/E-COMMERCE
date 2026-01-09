@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="com.ecommerce.Product" %>
 <%@ page import="com.ecommerce.Cart" %>
+<%@ page import="com.ecommerce.CartItem" %>
 
 <%
     Object cartObj = session.getAttribute("cart");
@@ -93,12 +94,15 @@
                     <p>Your cart is empty.</p>
                 <% } else { %>
                     <div class="summary-items">
-                        <% for (Product item : cart.getItems()) { %>
+                        <% for (CartItem item : cart.getItems()) {
+                            Product product = item.getProduct();
+                        %>
                             <div class="summary-item">
-                                <img src="<%= request.getContextPath() %>/<%= item.getImage() %>" alt="<%= item.getName() %>" class="item-image">
+                                <img src="<%= request.getContextPath() %>/<%= product.getImage() %>" alt="<%= product.getName() %>" class="item-image">
                                 <div class="item-details">
-                                    <span class="item-name"><%= item.getName() %></span>
-                                    <span class="item-price">$<%= String.format("%.2f", item.getPrice()) %></span>
+                                    <span class="item-name"><%= product.getName() %></span>
+                                    <span class="item-size">Size: <%= item.getSize() %></span>
+                                    <span class="item-price">$<%= String.format("%.2f", product.getPrice()) %></span>
                                 </div>
                             </div>
                         <% } %>

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="com.ecommerce.Product" %>
 <%@ page import="com.ecommerce.Cart" %>
+<%@ page import="com.ecommerce.CartItem" %>
 <%@ page import="com.ecommerce.ProductLoader" %>
 <%@ page import="java.util.List" %>
 
@@ -9,14 +10,16 @@
     Cart cart = (cartObj instanceof Cart) ? (Cart) cartObj : new Cart();
 
     String productIdStr = request.getParameter("productId");
-    if (productIdStr != null && !productIdStr.isEmpty()) {
+    String size = request.getParameter("size");
+
+    if (productIdStr != null && !productIdStr.isEmpty() && size != null && !size.isEmpty()) {
         try {
             int productId = Integer.parseInt(productIdStr);
             String jsonPath = application.getRealPath("/data/products.json");
             List<Product> allProducts = ProductLoader.loadProducts(jsonPath);
             for (Product p : allProducts) {
                 if (p.getId() == productId) {
-                    cart.addProduct(p);
+                    cart.addProduct(p, size);
                     break;
                 }
             }
@@ -29,7 +32,7 @@
     if (removeIndexStr != null) {
         try {
             int index = Integer.parseInt(removeIndexStr);
-            cart.removeProduct(index);
+            cart.removeItem(index);
         } catch (NumberFormatException e) {
             System.err.println("Invalid remove index: " + removeIndexStr);
         }
@@ -66,14 +69,16 @@
         </div>
         <% } else { %>
             <% for (int i = 0; i < cart.getItemCount(); i++) {
-                Product item = cart.getItems().get(i);
+                CartItem item = cart.getItems().get(i);
+                Product product = item.getProduct();
             %>
             <div class="cart-item">
-                <img src="<%= request.getContextPath() %>/<%= item.getImage() %>" alt="<%= item.getName() %>" class="item-img">
+                <img src="<%= request.getContextPath() %>/<%= product.getImage() %>" alt="<%= product.getName() %>" class="item-img">
                 <div class="item-details">
-                    <span class="item-name"><%= item.getName() %></span>
-                    <span class="item-id">ID: <%= item.getId() %></span>
-                    <span class="item-price">RM <%= String.format("%.2f", item.getPrice()) %></span>
+                    <span class="item-name"><%= product.getName() %></span>
+                    <span class="item-size">Size: <%= item.getSize() %></span>
+                    <span class="item-id">ID: <%= product.getId() %></span>
+                    <span class="item-price">RM <%= String.format("%.2f", product.getPrice()) %></span>
                 </div>
                 <a href="addToCart.jsp?removeIndex=<%= i %>" class="btn-remove">Remove</a>
             </div>

@@ -51,15 +51,16 @@
 
             <form action="addToCart.jsp" method="POST">
                 <input type="hidden" name="productId" value="<%= product.getId() %>">
+                <input type="hidden" name="size" id="selectedSize" value="9">
                 <div class="size-selection">
                     <h3 class="size-title">Select Size</h3>
                     <div class="size-options">
-                        <button class="size-btn">7</button>
-                        <button class="size-btn">8</button>
-                        <button class="size-btn active">9</button>
-                        <button class="size-btn">10</button>
-                        <button class="size-btn">11</button>
-                        <button class="size-btn">12</button>
+                        <button type="button" class="size-btn" data-size="7">7</button>
+                        <button type="button" class="size-btn" data-size="8">8</button>
+                        <button type="button" class="size-btn active" data-size="9">9</button>
+                        <button type="button" class="size-btn" data-size="10">10</button>
+                        <button type="button" class="size-btn" data-size="11">11</button>
+                        <button type="button" class="size-btn" data-size="12">12</button>
                     </div>
                 </div>
                 <div class="action-buttons">
@@ -79,6 +80,16 @@
 </main>
 
 <jsp:include page="HomePageHTML/HomePageFooter.jsp" />
+
+<script>
+    document.querySelectorAll('.size-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            document.getElementById('selectedSize').value = this.dataset.size;
+        });
+    });
+</script>
 
 </body>
 </html>
