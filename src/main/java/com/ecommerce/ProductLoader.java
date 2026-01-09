@@ -24,7 +24,7 @@ public class ProductLoader {
             productList = gson.fromJson(reader, listType);
 
         } catch (Exception e) {
-            e.printStackTrace(); // Prints errors to your server console if file not found
+            System.err.println("Error loading products from " + filePath + ": " + e.getMessage());
         }
 
         return productList;

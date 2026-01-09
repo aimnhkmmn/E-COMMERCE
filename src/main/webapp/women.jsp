@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="card-details">
-                    <span class="brand">Nike</span>
+                    <span class="brand"><%= p.getBrand() %></span>
                     <h4>
                         <a href="product-details.jsp?id=<%= p.getId() %>" style="text-decoration: none; color: inherit;">
                             <%= p.getName() %>
