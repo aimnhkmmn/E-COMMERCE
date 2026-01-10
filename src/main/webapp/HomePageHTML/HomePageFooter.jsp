@@ -9,7 +9,7 @@
         <div class="footer-col">
             <h4>Shop</h4>
             <ul>
-                <li><a href="#">New Arrivals</a></li>
+                <li><a href="new-featured.jsp">New Arrivals</a></li>
                 <li><a href="men.jsp">Men</a></li>
                 <li><a href="women.jsp">Women</a></li>
                 <li><a href="kids.jsp">Kids</a></li>
