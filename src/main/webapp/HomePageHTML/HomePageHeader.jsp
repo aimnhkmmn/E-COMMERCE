@@ -32,7 +32,7 @@
 
             <a href="addToCart.jsp" class="nav-item">Cart (<%= cartCount %>)</a>
 
-            <a href="login.jsp" class="btn-login">Login</a>
+            <a href="login.jsp" class="btn-login">Log in</a>
         </div>
 
     </div>
