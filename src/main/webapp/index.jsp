@@ -59,7 +59,7 @@
                         </form>
                     </div>
                 </div>
-                <img src="images/kasut%20homepage%20merah.jpg" alt="Shoe 1" class="slide-bg">
+                <img src="images/HomePageKasutMerah.jpg.jpg" alt="Shoe 1" class="slide-bg">
             </div>
             <div class="carousel-slide">
                 <div class="slide-content">
@@ -74,7 +74,7 @@
                         </form>
                     </div>
                 </div>
-                <img src="images/HomePage%20Nike%20Putih.jpg" alt="Shoe 2" class="slide-bg">
+                <img src="images/HomePageNikePutih.jpg" alt="Shoe 2" class="slide-bg">
             </div>
             <div class="carousel-slide">
                 <div class="slide-content">
@@ -89,7 +89,7 @@
                         </form>
                     </div>
                 </div>
-                <img src="images/Homepage%20Air%20Jordan.jpg" alt="Shoe 3" class="slide-bg">
+                <img src="images/HomepageAirJordan.jpg" alt="Shoe 3" class="slide-bg">
             </div>
         </div>
     </section>
