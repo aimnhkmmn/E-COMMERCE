@@ -4,8 +4,12 @@
 <%@ page import="com.ecommerce.CartItem" %>
 
 <%
+    // initialization and math
+    // retrieve the cart from the session
     Object cartObj = session.getAttribute("cart");
     Cart cart = (cartObj instanceof Cart) ? (Cart) cartObj : new Cart();
+
+    // calculate financial totals for the summary sidebar
     double subtotal = cart.getTotal();
     double shipping = (subtotal > 0) ? 15.00 : 0;
     double total = subtotal + shipping;

@@ -12,7 +12,9 @@
 </div>
 
 <%
-    // Clear the cart after a successful order
+    // session cleanup
+    // since order is complete, we must empty the cart
+    // removeAttribute deletes the "cart" object from the user's session
     session.removeAttribute("cart");
 %>
 
