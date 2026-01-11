@@ -59,7 +59,7 @@
                         </form>
                     </div>
                 </div>
-                <img src="images/HomePageKasutMerah.jpg.jpg" alt="Shoe 1" class="slide-bg">
+                <img src="images/HomePageKasutMerah.jpg" alt="Shoe 1" class="slide-bg">
             </div>
             <div class="carousel-slide">
                 <div class="slide-content">
