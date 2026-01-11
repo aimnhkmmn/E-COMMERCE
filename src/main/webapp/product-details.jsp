@@ -4,17 +4,21 @@
 <%@ page import="java.util.List" %>
 
 <%
+    // data retrieval logic
+    // get the Product ID passed in the URL
     String idParam = request.getParameter("id");
     Product product = null;
     if (idParam != null) {
         try {
             int productId = Integer.parseInt(idParam);
+
+            // load the full list from JSON and filter for the specific ID
             String jsonPath = application.getRealPath("/data/products.json");
             List<Product> allProducts = ProductLoader.loadProducts(jsonPath);
             for (Product p : allProducts) {
                 if (p.getId() == productId) {
                     product = p;
-                    break;
+                    break; // stop looking once found
                 }
             }
         } catch (NumberFormatException e) {

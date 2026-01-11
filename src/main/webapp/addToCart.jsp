@@ -6,17 +6,24 @@
 <%@ page import="java.util.List" %>
 
 <%
+    // cart initialization
+    // Retrieve existing cart from session or create a new one if it doesn't exist
     Object cartObj = session.getAttribute("cart");
     Cart cart = (cartObj instanceof Cart) ? (Cart) cartObj : new Cart();
 
+    // add item logic
+    // get parameter passed from product page
     String productIdStr = request.getParameter("productId");
     String size = request.getParameter("size");
 
+    // if ID and Size are present, we are adding a new item
     if (productIdStr != null && !productIdStr.isEmpty() && size != null && !size.isEmpty()) {
         try {
             int productId = Integer.parseInt(productIdStr);
+            // load product from JSON file
             String jsonPath = application.getRealPath("/data/products.json");
             List<Product> allProducts = ProductLoader.loadProducts(jsonPath);
+            // find the matching product and add it to the cart object
             for (Product p : allProducts) {
                 if (p.getId() == productId) {
                     cart.addProduct(p, size);
@@ -28,6 +35,8 @@
         }
     }
 
+    // remove item logic
+    // check if the user clicked a "Remove" button
     String removeIndexStr = request.getParameter("removeIndex");
     if (removeIndexStr != null) {
         try {
@@ -37,6 +46,9 @@
             System.err.println("Invalid remove index: " + removeIndexStr);
         }
     }
+
+    // final update
+    // save the updated cart back to the session so data persists
     session.setAttribute("cart", cart);
 
     double totalPrice = cart.getTotal();
